@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Hashing</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="images/logo.jpg" alt="Logo">
+        </div>
+
+        <h1>Upload a Document Intended for verification</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="document" required>
+            <button type="submit">Upload</button>
+        </form>
+        <% if (hash) { %>
+            <h2>Document Hash</h2>
+            <p><%= hash %></p>
+            <h2>QR Code</h2>
+            <img src="<%= qrCodeDataUrl %>" alt="QR Code">
+        <% } %>
+        <div class="share">
+            <h2>Share to linkedin</h2>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://document-hashing.herokuapp.com/&title=Document%20Hashing&summary=Document%20Hashing%20is%20a%20web%20application%20that%20allows%20users%20to%20upload%20documents%20and%20generate%20a%20hash%20for%20the%20document%20using%20SHA-256%20algorithm&source=Document%20Hashing" target="_blank">
+                <img src="images/linkedin.png" alt="Linkedin">
+        </div>
+    </div>
+</body>
+</html>
